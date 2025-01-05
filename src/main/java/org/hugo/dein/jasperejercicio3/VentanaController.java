@@ -34,29 +34,29 @@ public class VentanaController {
     @FXML
     void agrupadosPorSeccion(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
-        generarReporte("/JasperReport/agrupadosPorSeccion.jasper", parameters);
+        parameters.put("IMAGE_PATH", getClass().getResource("/imagenes/").toString());
+        generarReporte("/Jasper/agrupadosPorSeccion.jasper", parameters);
     }
 
     @FXML
     void graficoProductos(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
-        generarReporte("/JasperReport/GraficoUnidades.jasper", parameters);
+        parameters.put("IMAGE_PATH", getClass().getResource("/imagenes/").toString());
+        generarReporte("/Jasper/GraficoUnidades.jasper", parameters);
     }
 
     @FXML
     void listarEnTabla(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
-        generarReporte("/JasperReport/tablaDeProductos.jasper", parameters);
+        parameters.put("IMAGE_PATH", getClass().getResource("/imagenes/").toString());
+        generarReporte("/Jasper/tablaDeProductos.jasper", parameters);
     }
 
     @FXML
     void listarProductos(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("IMAGE_PATH", getClass().getResource("/img/").toString());
-        generarReporte("/JasperReport/listarProductos.jasper", parameters);
+        parameters.put("IMAGE_PATH", getClass().getResource("/imagenes/").toString());
+        generarReporte("/Jasper/listarProductos.jasper", parameters);
     }
 
     private void generarReporte(String reportePath, Map<String, Object> parameters) {
