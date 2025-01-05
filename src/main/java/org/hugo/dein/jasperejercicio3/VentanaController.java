@@ -17,6 +17,10 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Controlador de la ventana principal de la aplicación.
+ * Este controlador gestiona la interacción con los botones de la interfaz gráfica y genera los informes usando JasperReports.
+ */
 public class VentanaController {
 
     @FXML
@@ -31,6 +35,12 @@ public class VentanaController {
     @FXML
     private Button btListarProductos;
 
+    /**
+     * Maneja el evento cuando se hace clic en el botón para generar el reporte agrupado por sección.
+     * Crea los parámetros necesarios y llama al metodo {@link #generarReporte(String, Map)} para generar el informe.
+     *
+     * @param event El evento de acción generado al hacer clic en el botón.
+     */
     @FXML
     void agrupadosPorSeccion(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
@@ -38,6 +48,12 @@ public class VentanaController {
         generarReporte("/Jasper/agrupadosPorSeccion.jasper", parameters);
     }
 
+    /**
+     * Maneja el evento cuando se hace clic en el botón para generar el gráfico de productos.
+     * Crea los parámetros necesarios y llama al metodo {@link #generarReporte(String, Map)} para generar el informe.
+     *
+     * @param event El evento de acción generado al hacer clic en el botón.
+     */
     @FXML
     void graficoProductos(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
@@ -45,6 +61,12 @@ public class VentanaController {
         generarReporte("/Jasper/GraficoUnidades.jasper", parameters);
     }
 
+    /**
+     * Maneja el evento cuando se hace clic en el botón para generar el reporte de productos en una tabla.
+     * Crea los parámetros necesarios y llama al metodo {@link #generarReporte(String, Map)} para generar el informe.
+     *
+     * @param event El evento de acción generado al hacer clic en el botón.
+     */
     @FXML
     void listarEnTabla(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
@@ -52,6 +74,12 @@ public class VentanaController {
         generarReporte("/Jasper/tablaDeProductos.jasper", parameters);
     }
 
+    /**
+     * Maneja el evento cuando se hace clic en el botón para listar productos.
+     * Crea los parámetros necesarios y llama al metodo {@link #generarReporte(String, Map)} para generar el informe.
+     *
+     * @param event El evento de acción generado al hacer clic en el botón.
+     */
     @FXML
     void listarProductos(ActionEvent event) {
         Map<String, Object> parameters = new HashMap<>();
@@ -59,6 +87,13 @@ public class VentanaController {
         generarReporte("/Jasper/listarProductos.jasper", parameters);
     }
 
+    /**
+     * Genera un reporte utilizando JasperReports.
+     * Carga el archivo del reporte, llena el reporte con los parámetros y muestra el informe en una ventana de vista previa.
+     *
+     * @param reportePath La ruta al archivo Jasper (.jasper) que contiene el reporte.
+     * @param parameters Los parámetros que se deben pasar al reporte.
+     */
     private void generarReporte(String reportePath, Map<String, Object> parameters) {
         try {
             ConexionBBDD db = new ConexionBBDD();
@@ -80,6 +115,12 @@ public class VentanaController {
         }
     }
 
+    /**
+     * Muestra una ventana emergente de error con el título y el mensaje proporcionados.
+     *
+     * @param titulo El título de la ventana emergente.
+     * @param mensaje El mensaje que se muestra en la ventana emergente.
+     */
     private void mostrarError(String titulo, String mensaje) {
         // Crear una ventana emergente de tipo "error"
         Alert alert = new Alert(Alert.AlertType.ERROR);
