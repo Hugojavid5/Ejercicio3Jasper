@@ -24,7 +24,7 @@ public class LanzadorInformes extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(LanzadorInformes.class.getResource("/fxml/pantalla.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Supermercado!");
+        stage.setTitle("Mi supermercado");
         stage.setScene(scene);
         stage.show();
     }
